@@ -1,5 +1,5 @@
 <?php 
-$allowed = ['header', 'hobby', 'footer', 'home'];
+$allowed = ['header', 'hobby', 'footer', 'home', 'contact'];
 $page = $_GET['page'] ?? 'home';
 
 /*
