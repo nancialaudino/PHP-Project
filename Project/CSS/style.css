@@ -95,6 +95,25 @@
   }
 }
 
+#h1-form {
+  padding: 20px;
+}
+
+.col-lg-7{
+  padding: 50px;
+
+}
+
+.col-md-12{
+  padding: 30px;
+}
+
+.form-group{
+  padding: 10px;
+}
+
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
