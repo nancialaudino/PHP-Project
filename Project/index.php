@@ -23,5 +23,7 @@ switch ($page){
 
 if (in_array($page,$allowed)){
     include $page . '.php';
-} else echo '<h2>NOT FOUND</h2>'
+} else {
+    http_response_code(404);
+    echo '<h2>NOT FOUND</h2>';}
 ?>
