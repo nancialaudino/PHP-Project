@@ -14,9 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $optradio = htmlspecialchars(trim($_POST['optradio'] ?? ''));
     $message = htmlspecialchars(trim($_POST['message']));
 
-    $_SESSION['form_data'] = $_POST; // Salvar os dados preenchidos
+    $_SESSION['form_data'] = $_POST; // Sauvegarde des données renseignées
 
-    // Validações
+    // Validations
     if (empty($name)) {
         $errors['name'] = "The 'Name' field is required.";
     }
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         unset($_SESSION['form_data']);
         $formSubmitted = true;
 
-        // Gravar dados no ficheiro
+        // Écrire des données dans un fichier
         $content = "Name: $name\nSurname: $surname\nEmail: $email\nTitle: $title\nReason: $optradio\nMessage: $message\n---\n";
         file_put_contents('contact_data.txt', $content, FILE_APPEND);
     }
@@ -98,8 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="form-group">
                                             <label for="form_email">Email *</label>
                                             <input id="form_email" type="email" name="email"
-                                                class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>"
-                                                value="<?= htmlspecialchars($_SESSION['form_data']['email'] ?? '') ?>"
+                                                class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>" value="<?= htmlspecialchars($_SESSION['form_data']['email'] ?? '') ?>"
                                                 placeholder="Please enter your email *">
                                             <?php if (isset($errors['email'])): ?>
                                                 <div class="invalid-feedback"><?= $errors['email'] ?></div>
@@ -149,8 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="form-group">
                                             <label for="form_message">Message *</label>
                                             <textarea id="form_message" name="message"
-                                                class="form-control <?= isset($errors['message']) ? 'is-invalid' : '' ?>"
-                                                rows="4" placeholder="Write your message here."><?= htmlspecialchars($_SESSION['form_data']['message'] ?? '') ?></textarea>
+                                                class="form-control <?= isset($errors['message']) ? 'is-invalid' : '' ?>" rows="4" placeholder="Write your message here."><?= htmlspecialchars($_SESSION['form_data']['message'] ?? '') ?></textarea>
                                             <?php if (isset($errors['message'])): ?>
                                                 <div class="invalid-feedback d-block"><?= $errors['message'] ?></div>
                                             <?php endif; ?>
